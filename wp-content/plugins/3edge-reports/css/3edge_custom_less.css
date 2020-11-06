@@ -1,0 +1,1738 @@
+
+#chart-1 {
+  width: 600px;
+  height: 300px;
+}
+#chart-2 {
+  width: 400px;
+  height: 600px;
+}
+#chart-3 {
+  width: 600px;
+  height: 130px;
+}
+#chart-4 {
+  width: 130px;
+  height: 500px;
+}
+#chart-5 {
+  width: 300px;
+  height: 200px;
+}
+/**
+  * Chart container
+  * --------------------------------------------------
+  */
+.metric-chart {
+  position: relative;
+  margin: 40px auto;
+}
+/**
+  * Chart list reset
+  * --------------------------------------------------
+  */
+.y-axis-line-list,
+.x-axis-line-list,
+.y-axis-label-list,
+.x-axis-label-list,
+.y-axis-bar-list,
+.x-axis-bar-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.y-axis-line-list:before,
+.x-axis-line-list:before,
+.y-axis-label-list:before,
+.x-axis-label-list:before,
+.y-axis-bar-list:before,
+.x-axis-bar-list:before,
+.y-axis-line-list:after,
+.x-axis-line-list:after,
+.y-axis-label-list:after,
+.x-axis-label-list:after,
+.y-axis-bar-list:after,
+.x-axis-bar-list:after {
+  display: table;
+  content: " ";
+}
+.y-axis-line-list:before:after,
+.x-axis-line-list:before:after,
+.y-axis-label-list:before:after,
+.x-axis-label-list:before:after,
+.y-axis-bar-list:before:after,
+.x-axis-bar-list:before:after,
+.y-axis-line-list:after:after,
+.x-axis-line-list:after:after,
+.y-axis-label-list:after:after,
+.x-axis-label-list:after:after,
+.y-axis-bar-list:after:after,
+.x-axis-bar-list:after:after {
+  clear: both;
+}
+/**
+  * X & Y lines
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <div class="{ y|x }-axis"></div>
+  *
+  */
+.y-axis,
+.x-axis {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+}
+.y-axis {
+  top: 0;
+  right: auto;
+  width: 1px;
+  background-color: #434a54;
+}
+.x-axis {
+  top: auto;
+  right: 0;
+  height: 1px;
+  background-color: #434a54;
+}
+/**
+  * X & Y target lines
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <div class="{ y|x }-axis-target">
+  *   <span class="{ y|x }-axis-target-line">
+  *     <span class="{ y|x }-axis-target-line-label" data-label="{ label }"></span>
+  *   </span>
+  * </div>
+  *
+  */
+.y-axis-target,
+.x-axis-target {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 51px;
+  left: 51px;
+}
+.y-axis-target > .y-axis-target-line,
+.x-axis-target > .y-axis-target-line,
+.y-axis-target > .x-axis-target-line,
+.x-axis-target > .x-axis-target-line {
+  position: absolute;
+}
+.y-axis-target > .y-axis-target-line {
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: 190px;
+  width: 0;
+  border-right: 1px dashed #da4453;
+}
+.y-axis-target-line-label {
+  position: absolute;
+  top: -18px;
+  right: 0;
+  width: 100px;
+  text-align: right;
+}
+.y-axis-target-line-label:after {
+  content: attr(data-label);
+  color: #da4453;
+  font-size: 12px;
+  line-height: 1;
+}
+.x-axis-target > .x-axis-target-line {
+  top: auto;
+  right: 0;
+  bottom: 170px;
+  left: 0;
+  height: 0;
+  border-bottom: 1px dashed #da4453;
+}
+.x-axis-target-line-label {
+  position: absolute;
+  top: -9px;
+  right: -50px;
+  width: 40px;
+  text-align: left;
+}
+.x-axis-target-line-label:after {
+  content: attr(data-label);
+  color: #da4453;
+  font-size: 12px;
+  line-height: 1;
+}
+/**
+  * X axis background lines
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <ul class="x-axis-bar-list count-{ count }">
+  *   <li class="x-axis-bar-item">
+  *     <span class="x-axis-line"></span>
+  *   </li>
+  * </ul>
+  *
+  */
+.x-axis-line-list {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  bottom: 51px;
+  left: 50px;
+}
+.x-axis-line-item {
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: 0;
+}
+.count-1 .x-axis-line-item:nth-of-type(1) {
+  right: 0%;
+  left: 0%;
+}
+.count-2 .x-axis-line-item:nth-of-type(1) {
+  right: 50%;
+  left: 0%;
+}
+.count-2 .x-axis-line-item:nth-of-type(2) {
+  right: 0%;
+  left: 50%;
+}
+.count-3 .x-axis-line-item:nth-of-type(1) {
+  right: 66.66666666666667%;
+  left: 0%;
+}
+.count-3 .x-axis-line-item:nth-of-type(2) {
+  right: 33.333333333333336%;
+  left: 33.333333333333336%;
+}
+.count-3 .x-axis-line-item:nth-of-type(3) {
+  right: 0%;
+  left: 66.66666666666667%;
+}
+.count-4 .x-axis-line-item:nth-of-type(1) {
+  right: 75%;
+  left: 0%;
+}
+.count-4 .x-axis-line-item:nth-of-type(2) {
+  right: 50%;
+  left: 25%;
+}
+.count-4 .x-axis-line-item:nth-of-type(3) {
+  right: 25%;
+  left: 50%;
+}
+.count-4 .x-axis-line-item:nth-of-type(4) {
+  right: 0%;
+  left: 75%;
+}
+.count-5 .x-axis-line-item:nth-of-type(1) {
+  right: 80%;
+  left: 0%;
+}
+.count-5 .x-axis-line-item:nth-of-type(2) {
+  right: 60%;
+  left: 20%;
+}
+.count-5 .x-axis-line-item:nth-of-type(3) {
+  right: 40%;
+  left: 40%;
+}
+.count-5 .x-axis-line-item:nth-of-type(4) {
+  right: 20%;
+  left: 60%;
+}
+.count-5 .x-axis-line-item:nth-of-type(5) {
+  right: 0%;
+  left: 80%;
+}
+.count-6 .x-axis-line-item:nth-of-type(1) {
+  right: 83.33333333333334%;
+  left: 0%;
+}
+.count-6 .x-axis-line-item:nth-of-type(2) {
+  right: 66.66666666666667%;
+  left: 16.666666666666668%;
+}
+.count-6 .x-axis-line-item:nth-of-type(3) {
+  right: 50%;
+  left: 33.333333333333336%;
+}
+.count-6 .x-axis-line-item:nth-of-type(4) {
+  right: 33.333333333333336%;
+  left: 50%;
+}
+.count-6 .x-axis-line-item:nth-of-type(5) {
+  right: 16.666666666666668%;
+  left: 66.66666666666667%;
+}
+.count-6 .x-axis-line-item:nth-of-type(6) {
+  right: 0%;
+  left: 83.33333333333334%;
+}
+.count-7 .x-axis-line-item:nth-of-type(1) {
+  right: 85.71428571428572%;
+  left: 0%;
+}
+.count-7 .x-axis-line-item:nth-of-type(2) {
+  right: 71.42857142857143%;
+  left: 14.285714285714286%;
+}
+.count-7 .x-axis-line-item:nth-of-type(3) {
+  right: 57.142857142857146%;
+  left: 28.571428571428573%;
+}
+.count-7 .x-axis-line-item:nth-of-type(4) {
+  right: 42.85714285714286%;
+  left: 42.85714285714286%;
+}
+.count-7 .x-axis-line-item:nth-of-type(5) {
+  right: 28.571428571428573%;
+  left: 57.142857142857146%;
+}
+.count-7 .x-axis-line-item:nth-of-type(6) {
+  right: 14.285714285714286%;
+  left: 71.42857142857143%;
+}
+.count-7 .x-axis-line-item:nth-of-type(7) {
+  right: 0%;
+  left: 85.71428571428572%;
+}
+.count-8 .x-axis-line-item:nth-of-type(1) {
+  right: 87.5%;
+  left: 0%;
+}
+.count-8 .x-axis-line-item:nth-of-type(2) {
+  right: 75%;
+  left: 12.5%;
+}
+.count-8 .x-axis-line-item:nth-of-type(3) {
+  right: 62.5%;
+  left: 25%;
+}
+.count-8 .x-axis-line-item:nth-of-type(4) {
+  right: 50%;
+  left: 37.5%;
+}
+.count-8 .x-axis-line-item:nth-of-type(5) {
+  right: 37.5%;
+  left: 50%;
+}
+.count-8 .x-axis-line-item:nth-of-type(6) {
+  right: 25%;
+  left: 62.5%;
+}
+.count-8 .x-axis-line-item:nth-of-type(7) {
+  right: 12.5%;
+  left: 75%;
+}
+.count-8 .x-axis-line-item:nth-of-type(8) {
+  right: 0%;
+  left: 87.5%;
+}
+.count-9 .x-axis-line-item:nth-of-type(1) {
+  right: 88.88888888888889%;
+  left: 0%;
+}
+.count-9 .x-axis-line-item:nth-of-type(2) {
+  right: 77.77777777777777%;
+  left: 11.11111111111111%;
+}
+.count-9 .x-axis-line-item:nth-of-type(3) {
+  right: 66.66666666666666%;
+  left: 22.22222222222222%;
+}
+.count-9 .x-axis-line-item:nth-of-type(4) {
+  right: 55.55555555555556%;
+  left: 33.33333333333333%;
+}
+.count-9 .x-axis-line-item:nth-of-type(5) {
+  right: 44.44444444444444%;
+  left: 44.44444444444444%;
+}
+.count-9 .x-axis-line-item:nth-of-type(6) {
+  right: 33.33333333333333%;
+  left: 55.55555555555556%;
+}
+.count-9 .x-axis-line-item:nth-of-type(7) {
+  right: 22.22222222222222%;
+  left: 66.66666666666666%;
+}
+.count-9 .x-axis-line-item:nth-of-type(8) {
+  right: 11.11111111111111%;
+  left: 77.77777777777777%;
+}
+.count-9 .x-axis-line-item:nth-of-type(9) {
+  right: 0%;
+  left: 88.88888888888889%;
+}
+.count-10 .x-axis-line-item:nth-of-type(1) {
+  right: 90%;
+  left: 0%;
+}
+.count-10 .x-axis-line-item:nth-of-type(2) {
+  right: 80%;
+  left: 10%;
+}
+.count-10 .x-axis-line-item:nth-of-type(3) {
+  right: 70%;
+  left: 20%;
+}
+.count-10 .x-axis-line-item:nth-of-type(4) {
+  right: 60%;
+  left: 30%;
+}
+.count-10 .x-axis-line-item:nth-of-type(5) {
+  right: 50%;
+  left: 40%;
+}
+.count-10 .x-axis-line-item:nth-of-type(6) {
+  right: 40%;
+  left: 50%;
+}
+.count-10 .x-axis-line-item:nth-of-type(7) {
+  right: 30%;
+  left: 60%;
+}
+.count-10 .x-axis-line-item:nth-of-type(8) {
+  right: 20%;
+  left: 70%;
+}
+.count-10 .x-axis-line-item:nth-of-type(9) {
+  right: 10%;
+  left: 80%;
+}
+.count-10 .x-axis-line-item:nth-of-type(10) {
+  right: 0%;
+  left: 90%;
+}
+.x-axis-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  border-right: 1px solid #ccd1d9;
+}
+/**
+  * Y axis background lines
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <ul class="y-axis-bar-list count-{ count }">
+  *   <li class="y-axis-bar-item">
+  *     <span class="y-axis-line"></span>
+  *   </li>
+  * </ul>
+  *
+  */
+.y-axis-line-list {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  bottom: 50px;
+  left: 51px;
+}
+.y-axis-line-item {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.count-1 .y-axis-line-item:nth-of-type(1) {
+  bottom: 100%;
+}
+.count-2 .y-axis-line-item:nth-of-type(1) {
+  bottom: 50%;
+}
+.count-2 .y-axis-line-item:nth-of-type(2) {
+  bottom: 100%;
+}
+.count-3 .y-axis-line-item:nth-of-type(1) {
+  bottom: 33.333333333333336%;
+}
+.count-3 .y-axis-line-item:nth-of-type(2) {
+  bottom: 66.66666666666667%;
+}
+.count-3 .y-axis-line-item:nth-of-type(3) {
+  bottom: 100%;
+}
+.count-4 .y-axis-line-item:nth-of-type(1) {
+  bottom: 25%;
+}
+.count-4 .y-axis-line-item:nth-of-type(2) {
+  bottom: 50%;
+}
+.count-4 .y-axis-line-item:nth-of-type(3) {
+  bottom: 75%;
+}
+.count-4 .y-axis-line-item:nth-of-type(4) {
+  bottom: 100%;
+}
+.count-5 .y-axis-line-item:nth-of-type(1) {
+  bottom: 20%;
+}
+.count-5 .y-axis-line-item:nth-of-type(2) {
+  bottom: 40%;
+}
+.count-5 .y-axis-line-item:nth-of-type(3) {
+  bottom: 60%;
+}
+.count-5 .y-axis-line-item:nth-of-type(4) {
+  bottom: 80%;
+}
+.count-5 .y-axis-line-item:nth-of-type(5) {
+  bottom: 100%;
+}
+.count-6 .y-axis-line-item:nth-of-type(1) {
+  bottom: 16.666666666666668%;
+}
+.count-6 .y-axis-line-item:nth-of-type(2) {
+  bottom: 33.333333333333336%;
+}
+.count-6 .y-axis-line-item:nth-of-type(3) {
+  bottom: 50%;
+}
+.count-6 .y-axis-line-item:nth-of-type(4) {
+  bottom: 66.66666666666667%;
+}
+.count-6 .y-axis-line-item:nth-of-type(5) {
+  bottom: 83.33333333333334%;
+}
+.count-6 .y-axis-line-item:nth-of-type(6) {
+  bottom: 100%;
+}
+.count-7 .y-axis-line-item:nth-of-type(1) {
+  bottom: 14.285714285714286%;
+}
+.count-7 .y-axis-line-item:nth-of-type(2) {
+  bottom: 28.571428571428573%;
+}
+.count-7 .y-axis-line-item:nth-of-type(3) {
+  bottom: 42.85714285714286%;
+}
+.count-7 .y-axis-line-item:nth-of-type(4) {
+  bottom: 57.142857142857146%;
+}
+.count-7 .y-axis-line-item:nth-of-type(5) {
+  bottom: 71.42857142857143%;
+}
+.count-7 .y-axis-line-item:nth-of-type(6) {
+  bottom: 85.71428571428572%;
+}
+.count-7 .y-axis-line-item:nth-of-type(7) {
+  bottom: 100%;
+}
+.count-8 .y-axis-line-item:nth-of-type(1) {
+  bottom: 12.5%;
+}
+.count-8 .y-axis-line-item:nth-of-type(2) {
+  bottom: 25%;
+}
+.count-8 .y-axis-line-item:nth-of-type(3) {
+  bottom: 37.5%;
+}
+.count-8 .y-axis-line-item:nth-of-type(4) {
+  bottom: 50%;
+}
+.count-8 .y-axis-line-item:nth-of-type(5) {
+  bottom: 62.5%;
+}
+.count-8 .y-axis-line-item:nth-of-type(6) {
+  bottom: 75%;
+}
+.count-8 .y-axis-line-item:nth-of-type(7) {
+  bottom: 87.5%;
+}
+.count-8 .y-axis-line-item:nth-of-type(8) {
+  bottom: 100%;
+}
+.count-9 .y-axis-line-item:nth-of-type(1) {
+  bottom: 11.11111111111111%;
+}
+.count-9 .y-axis-line-item:nth-of-type(2) {
+  bottom: 22.22222222222222%;
+}
+.count-9 .y-axis-line-item:nth-of-type(3) {
+  bottom: 33.33333333333333%;
+}
+.count-9 .y-axis-line-item:nth-of-type(4) {
+  bottom: 44.44444444444444%;
+}
+.count-9 .y-axis-line-item:nth-of-type(5) {
+  bottom: 55.55555555555556%;
+}
+.count-9 .y-axis-line-item:nth-of-type(6) {
+  bottom: 66.66666666666666%;
+}
+.count-9 .y-axis-line-item:nth-of-type(7) {
+  bottom: 77.77777777777777%;
+}
+.count-9 .y-axis-line-item:nth-of-type(8) {
+  bottom: 88.88888888888889%;
+}
+.count-9 .y-axis-line-item:nth-of-type(9) {
+  bottom: 100%;
+}
+.count-10 .y-axis-line-item:nth-of-type(1) {
+  bottom: 10%;
+}
+.count-10 .y-axis-line-item:nth-of-type(2) {
+  bottom: 20%;
+}
+.count-10 .y-axis-line-item:nth-of-type(3) {
+  bottom: 30%;
+}
+.count-10 .y-axis-line-item:nth-of-type(4) {
+  bottom: 40%;
+}
+.count-10 .y-axis-line-item:nth-of-type(5) {
+  bottom: 50%;
+}
+.count-10 .y-axis-line-item:nth-of-type(6) {
+  bottom: 60%;
+}
+.count-10 .y-axis-line-item:nth-of-type(7) {
+  bottom: 70%;
+}
+.count-10 .y-axis-line-item:nth-of-type(8) {
+  bottom: 80%;
+}
+.count-10 .y-axis-line-item:nth-of-type(9) {
+  bottom: 90%;
+}
+.count-10 .y-axis-line-item:nth-of-type(10) {
+  bottom: 100%;
+}
+.y-axis-line {
+  display: block;
+  height: 1px;
+  background-color: #ccd1d9;
+}
+/**
+  * X axis labels
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <ul class="x-axis-label-list count-{ count }">
+  *   <li class="x-axis-label-item">
+  *     <span class="x-axis-label">{ label }</span>
+  *   </li>
+  * </ul>
+  *
+  */
+.x-axis-label-list {
+  position: absolute;
+  top: auto;
+  right: 5px;
+  bottom: 30px;
+}
+.h-bar-chart .x-axis-label-list {
+  right: 5px;
+  left: 56px;
+}
+.v-bar-chart .x-axis-label-list {
+  right: 10px;
+  left: 50px;
+}
+.x-axis-label-item {
+  display: block;
+  float: left;
+  width: 100%;
+}
+.count-1 .x-axis-label-item {
+  width: 100%;
+}
+.count-2 .x-axis-label-item {
+  width: 50%;
+}
+.count-3 .x-axis-label-item {
+  width: 33.333333333333336%;
+}
+.count-4 .x-axis-label-item {
+  width: 25%;
+}
+.count-5 .x-axis-label-item {
+  width: 20%;
+}
+.count-6 .x-axis-label-item {
+  width: 16.666666666666668%;
+}
+.count-7 .x-axis-label-item {
+  width: 14.285714285714286%;
+}
+.count-8 .x-axis-label-item {
+  width: 12.5%;
+}
+.count-9 .x-axis-label-item {
+  width: 11.11111111111111%;
+}
+.count-10 .x-axis-label-item {
+  width: 10%;
+}
+.x-axis-label {
+  position: relative;
+  display: block;
+  color: #656d78;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1;
+}
+.h-bar-chart .x-axis-label {
+  text-align: center;
+}
+.v-bar-chart .x-axis-label {
+  text-align: right;
+}
+/**
+  * Y axis labels
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <ul class="y-axis-label-list count-{ count }">
+  *   <li class="y-axis-label-item">
+  *     <span class="y-axis-label">{ label }</span>
+  *   </li>
+  * </ul>
+  *
+  */
+.y-axis-label-list {
+  position: absolute;
+  top: 10px;
+  right: auto;
+  bottom: 50px;
+  left: 0;
+  width: 40px;
+}
+.y-axis-label-item {
+  position: absolute;
+  top: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.count-1 .y-axis-label-item:nth-of-type(1) {
+  bottom: 100%;
+}
+.count-2 .y-axis-label-item:nth-of-type(1) {
+  bottom: 50%;
+}
+.count-2 .y-axis-label-item:nth-of-type(2) {
+  bottom: 100%;
+}
+.count-3 .y-axis-label-item:nth-of-type(1) {
+  bottom: 33.333333333333336%;
+}
+.count-3 .y-axis-label-item:nth-of-type(2) {
+  bottom: 66.66666666666667%;
+}
+.count-3 .y-axis-label-item:nth-of-type(3) {
+  bottom: 100%;
+}
+.count-4 .y-axis-label-item:nth-of-type(1) {
+  bottom: 25%;
+}
+.count-4 .y-axis-label-item:nth-of-type(2) {
+  bottom: 50%;
+}
+.count-4 .y-axis-label-item:nth-of-type(3) {
+  bottom: 75%;
+}
+.count-4 .y-axis-label-item:nth-of-type(4) {
+  bottom: 100%;
+}
+.count-5 .y-axis-label-item:nth-of-type(1) {
+  bottom: 20%;
+}
+.count-5 .y-axis-label-item:nth-of-type(2) {
+  bottom: 40%;
+}
+.count-5 .y-axis-label-item:nth-of-type(3) {
+  bottom: 60%;
+}
+.count-5 .y-axis-label-item:nth-of-type(4) {
+  bottom: 80%;
+}
+.count-5 .y-axis-label-item:nth-of-type(5) {
+  bottom: 100%;
+}
+.count-6 .y-axis-label-item:nth-of-type(1) {
+  bottom: 16.666666666666668%;
+}
+.count-6 .y-axis-label-item:nth-of-type(2) {
+  bottom: 33.333333333333336%;
+}
+.count-6 .y-axis-label-item:nth-of-type(3) {
+  bottom: 50%;
+}
+.count-6 .y-axis-label-item:nth-of-type(4) {
+  bottom: 66.66666666666667%;
+}
+.count-6 .y-axis-label-item:nth-of-type(5) {
+  bottom: 83.33333333333334%;
+}
+.count-6 .y-axis-label-item:nth-of-type(6) {
+  bottom: 100%;
+}
+.count-7 .y-axis-label-item:nth-of-type(1) {
+  bottom: 14.285714285714286%;
+}
+.count-7 .y-axis-label-item:nth-of-type(2) {
+  bottom: 28.571428571428573%;
+}
+.count-7 .y-axis-label-item:nth-of-type(3) {
+  bottom: 42.85714285714286%;
+}
+.count-7 .y-axis-label-item:nth-of-type(4) {
+  bottom: 57.142857142857146%;
+}
+.count-7 .y-axis-label-item:nth-of-type(5) {
+  bottom: 71.42857142857143%;
+}
+.count-7 .y-axis-label-item:nth-of-type(6) {
+  bottom: 85.71428571428572%;
+}
+.count-7 .y-axis-label-item:nth-of-type(7) {
+  bottom: 100%;
+}
+.count-8 .y-axis-label-item:nth-of-type(1) {
+  bottom: 12.5%;
+}
+.count-8 .y-axis-label-item:nth-of-type(2) {
+  bottom: 25%;
+}
+.count-8 .y-axis-label-item:nth-of-type(3) {
+  bottom: 37.5%;
+}
+.count-8 .y-axis-label-item:nth-of-type(4) {
+  bottom: 50%;
+}
+.count-8 .y-axis-label-item:nth-of-type(5) {
+  bottom: 62.5%;
+}
+.count-8 .y-axis-label-item:nth-of-type(6) {
+  bottom: 75%;
+}
+.count-8 .y-axis-label-item:nth-of-type(7) {
+  bottom: 87.5%;
+}
+.count-8 .y-axis-label-item:nth-of-type(8) {
+  bottom: 100%;
+}
+.count-9 .y-axis-label-item:nth-of-type(1) {
+  bottom: 11.11111111111111%;
+}
+.count-9 .y-axis-label-item:nth-of-type(2) {
+  bottom: 22.22222222222222%;
+}
+.count-9 .y-axis-label-item:nth-of-type(3) {
+  bottom: 33.33333333333333%;
+}
+.count-9 .y-axis-label-item:nth-of-type(4) {
+  bottom: 44.44444444444444%;
+}
+.count-9 .y-axis-label-item:nth-of-type(5) {
+  bottom: 55.55555555555556%;
+}
+.count-9 .y-axis-label-item:nth-of-type(6) {
+  bottom: 66.66666666666666%;
+}
+.count-9 .y-axis-label-item:nth-of-type(7) {
+  bottom: 77.77777777777777%;
+}
+.count-9 .y-axis-label-item:nth-of-type(8) {
+  bottom: 88.88888888888889%;
+}
+.count-9 .y-axis-label-item:nth-of-type(9) {
+  bottom: 100%;
+}
+.count-10 .y-axis-label-item:nth-of-type(1) {
+  bottom: 10%;
+}
+.count-10 .y-axis-label-item:nth-of-type(2) {
+  bottom: 20%;
+}
+.count-10 .y-axis-label-item:nth-of-type(3) {
+  bottom: 30%;
+}
+.count-10 .y-axis-label-item:nth-of-type(4) {
+  bottom: 40%;
+}
+.count-10 .y-axis-label-item:nth-of-type(5) {
+  bottom: 50%;
+}
+.count-10 .y-axis-label-item:nth-of-type(6) {
+  bottom: 60%;
+}
+.count-10 .y-axis-label-item:nth-of-type(7) {
+  bottom: 70%;
+}
+.count-10 .y-axis-label-item:nth-of-type(8) {
+  bottom: 80%;
+}
+.count-10 .y-axis-label-item:nth-of-type(9) {
+  bottom: 90%;
+}
+.count-10 .y-axis-label-item:nth-of-type(10) {
+  bottom: 100%;
+}
+.y-axis-label {
+  position: relative;
+  display: block;
+  color: #656d78;
+  text-align: right;
+  font-size: 12px;
+  line-height: 1;
+}
+.h-bar-chart .y-axis-label {
+  bottom: -6px;
+}
+.v-bar-chart .y-axis-label {
+  bottom: -18px;
+}
+/**
+  * X axis bars
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <ul class="x-axis-bar-list count-{ count }">
+  *   <li class="x-axis-bar-item { nested-bars }">
+  *     <span class="x-axis-bar { primary|secondary|tertiary }" style="top: { value in % };">
+  *       <span class="x-axis-bar-value" data-value="{ value }"></span>
+  *     </span>
+  *     <span class="x-axis-bullet-bar" style="top: { value in % }"></span>
+  *     <span class="x-axis-bar-target-line" style="bottom: { value in % };"></span>
+  *   </li>
+  * </ul>
+  *
+  */
+.x-axis-bar-list {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  bottom: 51px;
+  left: 56px;
+}
+.x-axis-bar-item {
+  position: absolute;
+  top: 0;
+  right: auto;
+  bottom: 0;
+  left: 0;
+}
+.count-1 .x-axis-bar-item:nth-of-type(1) {
+  right: 0%;
+  left: 0%;
+}
+.count-2 .x-axis-bar-item:nth-of-type(1) {
+  right: 50%;
+  left: 0%;
+}
+.count-2 .x-axis-bar-item:nth-of-type(2) {
+  right: 0%;
+  left: 50%;
+}
+.count-3 .x-axis-bar-item:nth-of-type(1) {
+  right: 66.66666666666667%;
+  left: 0%;
+}
+.count-3 .x-axis-bar-item:nth-of-type(2) {
+  right: 33.333333333333336%;
+  left: 33.333333333333336%;
+}
+.count-3 .x-axis-bar-item:nth-of-type(3) {
+  right: 0%;
+  left: 66.66666666666667%;
+}
+.count-4 .x-axis-bar-item:nth-of-type(1) {
+  right: 75%;
+  left: 0%;
+}
+.count-4 .x-axis-bar-item:nth-of-type(2) {
+  right: 50%;
+  left: 25%;
+}
+.count-4 .x-axis-bar-item:nth-of-type(3) {
+  right: 25%;
+  left: 50%;
+}
+.count-4 .x-axis-bar-item:nth-of-type(4) {
+  right: 0%;
+  left: 75%;
+}
+.count-5 .x-axis-bar-item:nth-of-type(1) {
+  right: 80%;
+  left: 0%;
+}
+.count-5 .x-axis-bar-item:nth-of-type(2) {
+  right: 60%;
+  left: 20%;
+}
+.count-5 .x-axis-bar-item:nth-of-type(3) {
+  right: 40%;
+  left: 40%;
+}
+.count-5 .x-axis-bar-item:nth-of-type(4) {
+  right: 20%;
+  left: 60%;
+}
+.count-5 .x-axis-bar-item:nth-of-type(5) {
+  right: 0%;
+  left: 80%;
+}
+.count-6 .x-axis-bar-item:nth-of-type(1) {
+  right: 83.33333333333334%;
+  left: 0%;
+}
+.count-6 .x-axis-bar-item:nth-of-type(2) {
+  right: 66.66666666666667%;
+  left: 16.666666666666668%;
+}
+.count-6 .x-axis-bar-item:nth-of-type(3) {
+  right: 50%;
+  left: 33.333333333333336%;
+}
+.count-6 .x-axis-bar-item:nth-of-type(4) {
+  right: 33.333333333333336%;
+  left: 50%;
+}
+.count-6 .x-axis-bar-item:nth-of-type(5) {
+  right: 16.666666666666668%;
+  left: 66.66666666666667%;
+}
+.count-6 .x-axis-bar-item:nth-of-type(6) {
+  right: 0%;
+  left: 83.33333333333334%;
+}
+.count-7 .x-axis-bar-item:nth-of-type(1) {
+  right: 85.71428571428572%;
+  left: 0%;
+}
+.count-7 .x-axis-bar-item:nth-of-type(2) {
+  right: 71.42857142857143%;
+  left: 14.285714285714286%;
+}
+.count-7 .x-axis-bar-item:nth-of-type(3) {
+  right: 57.142857142857146%;
+  left: 28.571428571428573%;
+}
+.count-7 .x-axis-bar-item:nth-of-type(4) {
+  right: 42.85714285714286%;
+  left: 42.85714285714286%;
+}
+.count-7 .x-axis-bar-item:nth-of-type(5) {
+  right: 28.571428571428573%;
+  left: 57.142857142857146%;
+}
+.count-7 .x-axis-bar-item:nth-of-type(6) {
+  right: 14.285714285714286%;
+  left: 71.42857142857143%;
+}
+.count-7 .x-axis-bar-item:nth-of-type(7) {
+  right: 0%;
+  left: 85.71428571428572%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(1) {
+  right: 87.5%;
+  left: 0%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(2) {
+  right: 75%;
+  left: 12.5%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(3) {
+  right: 62.5%;
+  left: 25%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(4) {
+  right: 50%;
+  left: 37.5%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(5) {
+  right: 37.5%;
+  left: 50%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(6) {
+  right: 25%;
+  left: 62.5%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(7) {
+  right: 12.5%;
+  left: 75%;
+}
+.count-8 .x-axis-bar-item:nth-of-type(8) {
+  right: 0%;
+  left: 87.5%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(1) {
+  right: 88.88888888888889%;
+  left: 0%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(2) {
+  right: 77.77777777777777%;
+  left: 11.11111111111111%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(3) {
+  right: 66.66666666666666%;
+  left: 22.22222222222222%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(4) {
+  right: 55.55555555555556%;
+  left: 33.33333333333333%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(5) {
+  right: 44.44444444444444%;
+  left: 44.44444444444444%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(6) {
+  right: 33.33333333333333%;
+  left: 55.55555555555556%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(7) {
+  right: 22.22222222222222%;
+  left: 66.66666666666666%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(8) {
+  right: 11.11111111111111%;
+  left: 77.77777777777777%;
+}
+.count-9 .x-axis-bar-item:nth-of-type(9) {
+  right: 0%;
+  left: 88.88888888888889%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(1) {
+  right: 90%;
+  left: 0%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(2) {
+  right: 80%;
+  left: 10%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(3) {
+  right: 70%;
+  left: 20%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(4) {
+  right: 60%;
+  left: 30%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(5) {
+  right: 50%;
+  left: 40%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(6) {
+  right: 40%;
+  left: 50%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(7) {
+  right: 30%;
+  left: 60%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(8) {
+  right: 20%;
+  left: 70%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(9) {
+  right: 10%;
+  left: 80%;
+}
+.count-10 .x-axis-bar-item:nth-of-type(10) {
+  right: 0%;
+  left: 90%;
+}
+.x-axis-bar {
+  position: absolute;
+  top: auto;
+  right: 5px;
+  bottom: 0;
+  left: 5px;
+  display: block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  background-color: #4fc1e9;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4);
+  transition: all 0.15s linear;
+}
+.x-axis-bar.primary {
+  border-color: #1f2225;
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(#7e8692), to(#656d78));
+  background-image: -webkit-linear-gradient(left, color-stop(#7e8692 0%), color-stop(#656d78 100%));
+  background-image: -moz-linear-gradient(left, #7e8692 0%, #656d78 100%);
+  background-image: linear-gradient(to right, #7e8692 0%, #656d78 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7e8692', endColorstr='#ff656d78', GradientType=1);
+}
+.x-axis-bar.secondary {
+  border-color: #472796;
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(#b6a2e7), to(#967adc));
+  background-image: -webkit-linear-gradient(left, color-stop(#b6a2e7 0%), color-stop(#967adc 100%));
+  background-image: -moz-linear-gradient(left, #b6a2e7 0%, #967adc 100%);
+  background-image: linear-gradient(to right, #b6a2e7 0%, #967adc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb6a2e7', endColorstr='#ff967adc', GradientType=1);
+}
+.x-axis-bar.tertiary {
+  border-color: #145168;
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(#59bbe0), to(#3bafda));
+  background-image: -webkit-linear-gradient(left, color-stop(#59bbe0 0%), color-stop(#3bafda 100%));
+  background-image: -moz-linear-gradient(left, #59bbe0 0%, #3bafda 100%);
+  background-image: linear-gradient(to right, #59bbe0 0%, #3bafda 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff59bbe0', endColorstr='#ff3bafda', GradientType=1);
+}
+.x-axis-bar.dashed {
+  border-color: #748298;
+  border-style: dashed;
+  border-bottom: none;
+  background-color: #fff;
+}
+.nested-bars .x-axis-bar:nth-of-type(1) {
+  right: 5px;
+  left: 5px;
+}
+.nested-bars .x-axis-bar:nth-of-type(2) {
+  right: 10px;
+  left: 10px;
+}
+.nested-bars .x-axis-bar:nth-of-type(3) {
+  right: 15px;
+  left: 15px;
+}
+.x-axis-bar-value {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  margin-left: -5px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+.primary .x-axis-bar-value {
+  border-color: #1f2225;
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(#7e8692), to(#656d78));
+  background-image: -webkit-linear-gradient(left, color-stop(#7e8692 0%), color-stop(#656d78 100%));
+  background-image: -moz-linear-gradient(left, #7e8692 0%, #656d78 100%);
+  background-image: linear-gradient(to right, #7e8692 0%, #656d78 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7e8692', endColorstr='#ff656d78', GradientType=1);
+}
+.secondary .x-axis-bar-value {
+  border-color: #472796;
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(#b6a2e7), to(#967adc));
+  background-image: -webkit-linear-gradient(left, color-stop(#b6a2e7 0%), color-stop(#967adc 100%));
+  background-image: -moz-linear-gradient(left, #b6a2e7 0%, #967adc 100%);
+  background-image: linear-gradient(to right, #b6a2e7 0%, #967adc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb6a2e7', endColorstr='#ff967adc', GradientType=1);
+}
+.tertiary .x-axis-bar-value {
+  border-color: #145168;
+  background-image: -webkit-gradient(linear, 0% top, 100% top, from(#59bbe0), to(#3bafda));
+  background-image: -webkit-linear-gradient(left, color-stop(#59bbe0 0%), color-stop(#3bafda 100%));
+  background-image: -moz-linear-gradient(left, #59bbe0 0%, #3bafda 100%);
+  background-image: linear-gradient(to right, #59bbe0 0%, #3bafda 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff59bbe0', endColorstr='#ff3bafda', GradientType=1);
+}
+.dashed .x-axis-bar-value {
+  border-color: #748298;
+  background-color: #fff;
+}
+.x-axis-bar-value:hover:after,
+.x-axis-bar-value:focus:after,
+.x-axis-bar-value:hover:before,
+.x-axis-bar-value:focus:before {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.15s linear;
+}
+.x-axis-bar-value:after {
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  z-index: 200;
+  visibility: hidden;
+  margin-left: -20px;
+  padding: 2px 0;
+  width: 40px;
+  border-radius: 3px;
+  background-color: #434a54;
+  color: #fff;
+  content: attr(data-value);
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0;
+}
+.x-axis-bar-value:before {
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  z-index: 200;
+  visibility: hidden;
+  margin-left: -6px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: #434a54;
+  content: '';
+  opacity: 0;
+}
+.x-axis-bullet-bar {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  bottom: 0;
+  left: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-bottom: none;
+  border-radius: 3px 3px 0 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0px 0px 6px 1px rgba(0, 0, 0, 0.4);
+  transition: all 0.15s linear;
+}
+.x-axis-bar-target-line {
+  position: absolute;
+  top: auto;
+  right: 2px;
+  bottom: 0;
+  left: 2px;
+  height: 1px;
+  background-color: #1f2125;
+}
+/**
+  * Y axis bars
+  * --------------------------------------------------
+  *
+  * Recommended usage:
+  *
+  * <ul class="y-axis-bar-list count-{ count }">
+  *   <li class="y-axis-bar-item { nested-bars }">
+  *     <span class="y-axis-bar { primary|secondary|tertiary }" style="right: { value in % };">
+  *       <span class="y-axis-bar-value" data-value="{ value }"></span>
+  *     </span>
+  *     <span class="y-axis-bullet-bar" style="right: { value in % }"></span>
+  *     <span class="y-axis-bar-target-line" style="left: { value in % };"></span>
+  *   </li>
+  * </ul>
+  *
+  */
+.y-axis-bar-list {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  bottom: 56px;
+  left: 51px;
+}
+.y-axis-bar-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: 0;
+}
+.count-1 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 0%;
+}
+.count-2 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 50%;
+}
+.count-2 .y-axis-bar-item:nth-of-type(2) {
+  top: 50%;
+  bottom: 0%;
+}
+.count-3 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 66.66666666666667%;
+}
+.count-3 .y-axis-bar-item:nth-of-type(2) {
+  top: 33.333333333333336%;
+  bottom: 33.333333333333336%;
+}
+.count-3 .y-axis-bar-item:nth-of-type(3) {
+  top: 66.66666666666667%;
+  bottom: 0%;
+}
+.count-4 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 75%;
+}
+.count-4 .y-axis-bar-item:nth-of-type(2) {
+  top: 25%;
+  bottom: 50%;
+}
+.count-4 .y-axis-bar-item:nth-of-type(3) {
+  top: 50%;
+  bottom: 25%;
+}
+.count-4 .y-axis-bar-item:nth-of-type(4) {
+  top: 75%;
+  bottom: 0%;
+}
+.count-5 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 80%;
+}
+.count-5 .y-axis-bar-item:nth-of-type(2) {
+  top: 20%;
+  bottom: 60%;
+}
+.count-5 .y-axis-bar-item:nth-of-type(3) {
+  top: 40%;
+  bottom: 40%;
+}
+.count-5 .y-axis-bar-item:nth-of-type(4) {
+  top: 60%;
+  bottom: 20%;
+}
+.count-5 .y-axis-bar-item:nth-of-type(5) {
+  top: 80%;
+  bottom: 0%;
+}
+.count-6 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 83.33333333333334%;
+}
+.count-6 .y-axis-bar-item:nth-of-type(2) {
+  top: 16.666666666666668%;
+  bottom: 66.66666666666667%;
+}
+.count-6 .y-axis-bar-item:nth-of-type(3) {
+  top: 33.333333333333336%;
+  bottom: 50%;
+}
+.count-6 .y-axis-bar-item:nth-of-type(4) {
+  top: 50%;
+  bottom: 33.333333333333336%;
+}
+.count-6 .y-axis-bar-item:nth-of-type(5) {
+  top: 66.66666666666667%;
+  bottom: 16.666666666666668%;
+}
+.count-6 .y-axis-bar-item:nth-of-type(6) {
+  top: 83.33333333333334%;
+  bottom: 0%;
+}
+.count-7 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 85.71428571428572%;
+}
+.count-7 .y-axis-bar-item:nth-of-type(2) {
+  top: 14.285714285714286%;
+  bottom: 71.42857142857143%;
+}
+.count-7 .y-axis-bar-item:nth-of-type(3) {
+  top: 28.571428571428573%;
+  bottom: 57.142857142857146%;
+}
+.count-7 .y-axis-bar-item:nth-of-type(4) {
+  top: 42.85714285714286%;
+  bottom: 42.85714285714286%;
+}
+.count-7 .y-axis-bar-item:nth-of-type(5) {
+  top: 57.142857142857146%;
+  bottom: 28.571428571428573%;
+}
+.count-7 .y-axis-bar-item:nth-of-type(6) {
+  top: 71.42857142857143%;
+  bottom: 14.285714285714286%;
+}
+.count-7 .y-axis-bar-item:nth-of-type(7) {
+  top: 85.71428571428572%;
+  bottom: 0%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 87.5%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(2) {
+  top: 12.5%;
+  bottom: 75%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(3) {
+  top: 25%;
+  bottom: 62.5%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(4) {
+  top: 37.5%;
+  bottom: 50%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(5) {
+  top: 50%;
+  bottom: 37.5%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(6) {
+  top: 62.5%;
+  bottom: 25%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(7) {
+  top: 75%;
+  bottom: 12.5%;
+}
+.count-8 .y-axis-bar-item:nth-of-type(8) {
+  top: 87.5%;
+  bottom: 0%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 88.88888888888889%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(2) {
+  top: 11.11111111111111%;
+  bottom: 77.77777777777777%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(3) {
+  top: 22.22222222222222%;
+  bottom: 66.66666666666666%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(4) {
+  top: 33.33333333333333%;
+  bottom: 55.55555555555556%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(5) {
+  top: 44.44444444444444%;
+  bottom: 44.44444444444444%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(6) {
+  top: 55.55555555555556%;
+  bottom: 33.33333333333333%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(7) {
+  top: 66.66666666666666%;
+  bottom: 22.22222222222222%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(8) {
+  top: 77.77777777777777%;
+  bottom: 11.11111111111111%;
+}
+.count-9 .y-axis-bar-item:nth-of-type(9) {
+  top: 88.88888888888889%;
+  bottom: 0%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(1) {
+  top: 0%;
+  bottom: 90%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(2) {
+  top: 10%;
+  bottom: 80%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(3) {
+  top: 20%;
+  bottom: 70%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(4) {
+  top: 30%;
+  bottom: 60%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(5) {
+  top: 40%;
+  bottom: 50%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(6) {
+  top: 50%;
+  bottom: 40%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(7) {
+  top: 60%;
+  bottom: 30%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(8) {
+  top: 70%;
+  bottom: 20%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(9) {
+  top: 80%;
+  bottom: 10%;
+}
+.count-10 .y-axis-bar-item:nth-of-type(10) {
+  top: 90%;
+  bottom: 0%;
+}
+.y-axis-bar {
+  position: absolute;
+  top: 5px;
+  right: auto;
+  bottom: 5px;
+  left: 0;
+  display: block;
+  border: 1px solid transparent;
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+  background-color: #4fc1e9;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4);
+  transition: all 0.15s linear;
+}
+.y-axis-bar.primary {
+  border-color: #1f2225;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#7e8692), to(#656d78));
+  background-image: -webkit-linear-gradient(top, #7e8692, 0%, #656d78, 100%);
+  background-image: -moz-linear-gradient(top, #7e8692 0%, #656d78 100%);
+  background-image: linear-gradient(to bottom, #7e8692 0%, #656d78 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7e8692', endColorstr='#ff656d78', GradientType=0);
+}
+.y-axis-bar.secondary {
+  border-color: #472796;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#b6a2e7), to(#967adc));
+  background-image: -webkit-linear-gradient(top, #b6a2e7, 0%, #967adc, 100%);
+  background-image: -moz-linear-gradient(top, #b6a2e7 0%, #967adc 100%);
+  background-image: linear-gradient(to bottom, #b6a2e7 0%, #967adc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb6a2e7', endColorstr='#ff967adc', GradientType=0);
+}
+.y-axis-bar.tertiary {
+  border-color: #145168;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#59bbe0), to(#3bafda));
+  background-image: -webkit-linear-gradient(top, #59bbe0, 0%, #3bafda, 100%);
+  background-image: -moz-linear-gradient(top, #59bbe0 0%, #3bafda 100%);
+  background-image: linear-gradient(to bottom, #59bbe0 0%, #3bafda 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff59bbe0', endColorstr='#ff3bafda', GradientType=0);
+}
+.y-axis-bar.dashed {
+  border-color: #748298;
+  border-style: dashed;
+  border-left: none;
+  background-color: #fff;
+}
+.nested-bars .y-axis-bar:nth-of-type(1) {
+  top: 5px;
+  bottom: 5px;
+}
+.nested-bars .y-axis-bar:nth-of-type(2) {
+  top: 10px;
+  bottom: 10px;
+}
+.nested-bars .y-axis-bar:nth-of-type(3) {
+  top: 15px;
+  bottom: 15px;
+}
+.y-axis-bar-value {
+  position: absolute;
+  top: 50%;
+  right: -5px;
+  margin-top: -5px;
+  width: 10px;
+  height: 10px;
+  border: 1px solid transparent;
+  border-radius: 50%;
+  box-shadow: inset 0px 1px 0px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.15s linear;
+}
+.primary .y-axis-bar-value {
+  border-color: #1f2225;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#7e8692), to(#656d78));
+  background-image: -webkit-linear-gradient(top, #7e8692, 0%, #656d78, 100%);
+  background-image: -moz-linear-gradient(top, #7e8692 0%, #656d78 100%);
+  background-image: linear-gradient(to bottom, #7e8692 0%, #656d78 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7e8692', endColorstr='#ff656d78', GradientType=0);
+}
+.secondary > .y-axis-bar-value {
+  border-color: #472796;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#b6a2e7), to(#967adc));
+  background-image: -webkit-linear-gradient(top, #b6a2e7, 0%, #967adc, 100%);
+  background-image: -moz-linear-gradient(top, #b6a2e7 0%, #967adc 100%);
+  background-image: linear-gradient(to bottom, #b6a2e7 0%, #967adc 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb6a2e7', endColorstr='#ff967adc', GradientType=0);
+}
+.tertiary > .y-axis-bar-value {
+  border-color: #145168;
+  background-image: -webkit-gradient(linear, left 0%, left 100%, from(#59bbe0), to(#3bafda));
+  background-image: -webkit-linear-gradient(top, #59bbe0, 0%, #3bafda, 100%);
+  background-image: -moz-linear-gradient(top, #59bbe0 0%, #3bafda 100%);
+  background-image: linear-gradient(to bottom, #59bbe0 0%, #3bafda 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff59bbe0', endColorstr='#ff3bafda', GradientType=0);
+}
+.dashed .y-axis-bar-value {
+  border-color: #748298;
+  background-color: #fff;
+}
+.y-axis-bar-value:hover:after,
+.y-axis-bar-value:focus:after,
+.y-axis-bar-value:hover:before,
+.y-axis-bar-value:focus:before {
+  visibility: visible;
+  opacity: 1;
+  transition: all 0.15s linear;
+}
+.y-axis-bar-value:after {
+  position: absolute;
+  top: 50%;
+  right: -43px;
+  z-index: 200;
+  visibility: hidden;
+  margin-top: -11px;
+  padding: 2px 0;
+  width: 40px;
+  border-radius: 3px;
+  background-color: #434a54;
+  color: #fff;
+  content: attr(data-value);
+  text-align: center;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0;
+}
+.y-axis-bar-value:before {
+  position: absolute;
+  top: 50%;
+  right: -3px;
+  z-index: 200;
+  visibility: hidden;
+  margin-top: -6px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-right-color: #434a54;
+  content: '';
+  opacity: 0;
+}
+.y-axis-bullet-bar {
+  position: absolute;
+  top: 15px;
+  right: 0;
+  bottom: 15px;
+  left: 0;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.3), 0 1px 0 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.15s linear;
+}
+.y-axis-bar-target-line {
+  position: absolute;
+  top: 2px;
+  right: auto;
+  bottom: 2px;
+  left: 0;
+  width: 1px;
+  background-color: #1f2125;
+}

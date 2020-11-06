@@ -1,0 +1,81 @@
+.chart-wrap {
+		  margin-left: 50px;
+		  font-family: sans-serif;
+		  height: 650px;
+		  width: 300px;
+		}
+		.chart-wrap .title {
+		  font-weight: bold;
+		  font-size: 1.62em;
+		  padding: 0.5em 0 1.8em 0;
+		  text-align: center;
+		  white-space: nowrap;
+		}
+		.chart-wrap.vertical .grid {
+		  transform: translateY(-175px) translateX(175px) rotate(-90deg);
+		}
+		.chart-wrap.vertical .grid .bar::after {
+		  transform: translateY(-50%) rotate(45deg);
+		  display: block;
+		}
+		.chart-wrap.vertical .grid::before,
+		.chart-wrap.vertical .grid::after {
+		  transform: translateX(-0.2em) rotate(90deg);
+		}
+		.chart-wrap .grid {
+		  position: relative;
+		  padding: 5px 0 5px 0;
+		  height: 100%;
+		  width: 100%;
+		  border-left: 2px solid #aaaaaa;
+		  background: repeating-linear-gradient(90deg, transparent, transparent 19.5%, rgba(170, 170, 170, 0.7) 20%);
+		}
+		.chart-wrap .grid::before {
+		  font-size: 0.8em;
+		  font-weight: bold;
+		  content: '0%';
+		  position: absolute;
+		  left: -0.5em;
+		  top: -1.5em;
+		}
+		.chart-wrap .grid::after {
+		  font-size: 0.8em;
+		  font-weight: bold;
+		  content: '100%';
+		  position: absolute;
+		  right: -1.5em;
+		  top: -1.5em;
+		}
+		.chart-wrap .bar {
+		  width: var(--bar-value);
+		  height: 10px;
+		  margin: 30px 0;
+		  background-color: #f16335;
+		  border-radius: 0 3px 3px 0;
+		}
+		.chart-wrap .bar:hover {
+		  opacity: 0.7;
+		}
+		.chart-wrap .bar::after {
+		  content: attr(data-name);
+		  margin-left: 100%;
+		  padding: 10px;
+		  display: inline-block;
+		  white-space: nowrap;
+		}
+		.chart-wrap .yellow_bar
+		{
+			background-color: #e9f715;
+		}
+		.chart-wrap .green_bar
+		{
+			background-color: #08fb04;
+		}
+		.chart-wrap .red_bar
+		{
+			background-color: #fb3204;
+		}
+		.chart-wrap .blue_bar
+		{
+			background-color: #0439fb;
+		}
